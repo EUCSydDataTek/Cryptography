@@ -1,0 +1,1 @@
+﻿Dette er en simpel symmetrisk kryptering.
