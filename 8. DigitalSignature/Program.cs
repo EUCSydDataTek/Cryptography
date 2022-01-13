@@ -26,12 +26,10 @@ namespace CryptographyInDotNet
             Console.WriteLine("---------------------------------------");
             Console.WriteLine();            
             Console.WriteLine();
-            Console.WriteLine("   Original Text = " + 
-                Encoding.Default.GetString(document));
+            Console.WriteLine($"   Original Text = {Encoding.UTF8.GetString(document)}");
 
             Console.WriteLine();
-            Console.WriteLine("   Digital Signature = " + 
-                Convert.ToBase64String(signature));
+            Console.WriteLine($"   Digital Signature = {Convert.ToBase64String(signature)}");
 
             Console.WriteLine();
 
