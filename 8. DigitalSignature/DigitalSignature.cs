@@ -1,47 +1,45 @@
 ﻿using System.Security.Cryptography;
 
-namespace CryptographyInDotNet
+namespace CryptographyInDotNet;
+public class DigitalSignature
 {
-    public class DigitalSignature
+    private RSAParameters _publicKey;
+    private RSAParameters _privateKey;
+
+    public void AssignNewKey()
     {
-        private RSAParameters _publicKey;
-        private RSAParameters _privateKey;
-
-        public void AssignNewKey()
+        using (var rsa = new RSACryptoServiceProvider(2048))
         {
-            using (var rsa = new RSACryptoServiceProvider(2048))
-            {                
-                rsa.PersistKeyInCsp = false;               
-                _publicKey = rsa.ExportParameters(false);
-                _privateKey = rsa.ExportParameters(true);                
-            }
+            rsa.PersistKeyInCsp = false;
+            _publicKey = rsa.ExportParameters(false);
+            _privateKey = rsa.ExportParameters(true);
         }
+    }
 
-        public byte[] SignData(byte[] hashOfDataToSign)
+    public byte[] SignData(byte[] hashOfDataToSign)
+    {
+        using (var rsa = new RSACryptoServiceProvider(2048))
         {
-            using (var rsa = new RSACryptoServiceProvider(2048))
-            {
-                rsa.PersistKeyInCsp = false;
-                rsa.ImportParameters(_privateKey);
-                
-                var rsaFormatter = new RSAPKCS1SignatureFormatter(rsa);                
-                rsaFormatter.SetHashAlgorithm("SHA256");
+            rsa.PersistKeyInCsp = false;
+            rsa.ImportParameters(_privateKey);
 
-                return rsaFormatter.CreateSignature(hashOfDataToSign);
-            }
+            var rsaFormatter = new RSAPKCS1SignatureFormatter(rsa);
+            rsaFormatter.SetHashAlgorithm("SHA256");
+
+            return rsaFormatter.CreateSignature(hashOfDataToSign);
         }
+    }
 
-        public bool VerifySignature(byte[] hashOfDataToSign, byte[] signature)
+    public bool VerifySignature(byte[] hashOfDataToSign, byte[] signature)
+    {
+        using (var rsa = new RSACryptoServiceProvider(2048))
         {
-            using (var rsa = new RSACryptoServiceProvider(2048))
-            {
-                rsa.ImportParameters(_publicKey);
+            rsa.ImportParameters(_publicKey);
 
-                var rsaDeformatter = new RSAPKCS1SignatureDeformatter(rsa);
-                rsaDeformatter.SetHashAlgorithm("SHA256");
+            var rsaDeformatter = new RSAPKCS1SignatureDeformatter(rsa);
+            rsaDeformatter.SetHashAlgorithm("SHA256");
 
-                return rsaDeformatter.VerifySignature(hashOfDataToSign, signature);
-            }
-        }   
+            return rsaDeformatter.VerifySignature(hashOfDataToSign, signature);
+        }
     }
 }

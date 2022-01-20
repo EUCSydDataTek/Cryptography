@@ -1,30 +1,27 @@
-using System;
 using System.Text;
 
-namespace CryptographyInDotNet
+namespace CryptographyInDotNet;
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main()
-        {
-            var aes = new AesEncryption();
-            var key = aes.GenerateRandomNumber(32);
-            var iv = aes.GenerateRandomNumber(16);
-            const string original = "This my secret message";
+        var aes = new AesEncryption();
+        var key = aes.GenerateRandomNumber(32);
+        var iv = aes.GenerateRandomNumber(16);
+        const string original = "This my secret message";
 
-            var encrypted = aes.Encrypt(Encoding.UTF8.GetBytes(original), key, iv);
-            var decrypted = aes.Decrypt(encrypted, key, iv);
+        var encrypted = aes.Encrypt(Encoding.UTF8.GetBytes(original), key, iv);
+        var decrypted = aes.Decrypt(encrypted, key, iv);
 
-            var decryptedMessage = Encoding.UTF8.GetString(decrypted);
+        var decryptedMessage = Encoding.UTF8.GetString(decrypted);
 
-            Console.WriteLine("AES Encryption Demonstration in .NET");
-            Console.WriteLine("------------------------------------");
-            Console.WriteLine();
-            Console.WriteLine("Original Text = " + original);
-            Console.WriteLine("Encrypted Text = " + Convert.ToBase64String(encrypted));
-            Console.WriteLine("Decrypted Text = " + decryptedMessage);
+        Console.WriteLine("AES Encryption Demonstration in .NET");
+        Console.WriteLine("------------------------------------");
+        Console.WriteLine();
+        Console.WriteLine("Original Text = " + original);
+        Console.WriteLine("Encrypted Text = " + Convert.ToBase64String(encrypted));
+        Console.WriteLine("Decrypted Text = " + decryptedMessage);
 
-            Console.ReadLine();
-        }
+        Console.ReadLine();
     }
 }

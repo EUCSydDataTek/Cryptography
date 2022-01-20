@@ -3,19 +3,17 @@
 // K�r progrmmet igen og se at hashen er den samme
 // �ndre lidt i filen HashThis.txt og hash igen. Nu er hashen en anden!
 
-using System;
-using System.IO;
 using System.Text;
 using System.Security.Cryptography;
 
-namespace NonkeyedHash
+namespace NonkeyedHash;
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        // Hash a file
+        using (Stream fs = File.OpenRead(args[0]))
         {
-            // Hash a file
-            Stream fs = File.OpenRead(args[0]);
             byte[] hash = MD5.Create().ComputeHash(fs);
             Console.WriteLine(Convert.ToBase64String(hash));
 

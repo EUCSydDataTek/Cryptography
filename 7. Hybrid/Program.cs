@@ -1,29 +1,26 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 
-namespace CryptographyInDotNet
+namespace CryptographyInDotNet;
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main()
-        {                                
-            const string original = "Very secret and important information that can not fall into the wrong hands.";
+        const string original = "Very secret and important information that can not fall into the wrong hands.";
 
-            var rsaParams = new RsaWithRsaParameterKey();
-            rsaParams.AssignNewKey();
+        var rsaParams = new RsaWithRsaParameterKey();
+        rsaParams.AssignNewKey();
 
-            var hybrid = new HybridEncryption();
+        var hybrid = new HybridEncryption();
 
-            var encryptedBlock = hybrid.EncryptData(Encoding.UTF8.GetBytes(original), rsaParams);
-            var decrypted = hybrid.DecryptData(encryptedBlock, rsaParams);
+        var encryptedBlock = hybrid.EncryptData(Encoding.UTF8.GetBytes(original), rsaParams);
+        var decrypted = hybrid.DecryptData(encryptedBlock, rsaParams);
 
-            Console.WriteLine("Hybrid Encryption Demonstration in .NET");
-            Console.WriteLine("---------------------------------------");
-            Console.WriteLine();
-            Console.WriteLine("Original Message = " + original);
-            Console.WriteLine();
-            Console.WriteLine("Message After Decryption = " + Encoding.UTF8.GetString(decrypted));
-            Console.ReadLine();
-        }
+        Console.WriteLine("Hybrid Encryption Demonstration in .NET");
+        Console.WriteLine("---------------------------------------");
+        Console.WriteLine();
+        Console.WriteLine("Original Message = " + original);
+        Console.WriteLine();
+        Console.WriteLine("Message After Decryption = " + Encoding.UTF8.GetString(decrypted));
+        Console.ReadLine();
     }
 }
