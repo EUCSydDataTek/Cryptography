@@ -18,9 +18,9 @@ class Program
         Console.WriteLine("Hybrid Encryption Demonstration in .NET");
         Console.WriteLine("---------------------------------------");
         Console.WriteLine();
-        Console.WriteLine("Original Message = " + original);
+        Console.WriteLine($"Original Message = {original}");
         Console.WriteLine();
-        Console.WriteLine("Message After Decryption = " + Encoding.UTF8.GetString(decrypted));
+        Console.WriteLine($"Message After Decryption = {Encoding.UTF8.GetString(decrypted)}");
         Console.ReadLine();
     }
 }

@@ -37,8 +37,8 @@ class Program
         sw.Stop();
 
         Console.WriteLine();
-        Console.WriteLine("Password to hash : " + passwordToHash);
-        Console.WriteLine("Hashed Password : " + Convert.ToBase64String(hashedPassword));
-        Console.WriteLine("Iterations <" + numberOfRounds + "> Elapsed Time : " + sw.ElapsedMilliseconds + "ms");
+        Console.WriteLine($"Password to hash : {passwordToHash}");
+        Console.WriteLine($"Hashed Password : {Convert.ToBase64String(hashedPassword)}");
+        Console.WriteLine($"Iterations <{numberOfRounds}> Elapsed Time : {sw.ElapsedMilliseconds}ms");
     }
 }

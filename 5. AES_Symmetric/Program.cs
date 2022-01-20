@@ -18,9 +18,9 @@ class Program
         Console.WriteLine("AES Encryption Demonstration in .NET");
         Console.WriteLine("------------------------------------");
         Console.WriteLine();
-        Console.WriteLine("Original Text = " + original);
-        Console.WriteLine("Encrypted Text = " + Convert.ToBase64String(encrypted));
-        Console.WriteLine("Decrypted Text = " + decryptedMessage);
+        Console.WriteLine($"Original Text = {original}");
+        Console.WriteLine($"Encrypted Text = {Convert.ToBase64String(encrypted)}");
+        Console.WriteLine($"Decrypted Text = {decryptedMessage}");
 
         Console.ReadLine();
     }

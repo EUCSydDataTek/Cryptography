@@ -28,11 +28,11 @@ class Program
         Console.WriteLine();
         Console.WriteLine("In Memory Key");
         Console.WriteLine();
-        Console.WriteLine("   Original Text = " + original);
+        Console.WriteLine($"   Original Text = {original}");
         Console.WriteLine();
-        Console.WriteLine("   Encrypted Text = " + Convert.ToBase64String(encryptedRsaParams));
+        Console.WriteLine($"   Encrypted Text = {Convert.ToBase64String(encryptedRsaParams)}");
         Console.WriteLine();
-        Console.WriteLine("   Decrypted Text = " + Encoding.UTF8.GetString(decryptedRsaParams));
+        Console.WriteLine($"   Decrypted Text = {Encoding.UTF8.GetString(decryptedRsaParams)}");
         Console.WriteLine();
         Console.WriteLine();
     }
@@ -51,11 +51,11 @@ class Program
 
         Console.WriteLine("Xml Based Key");
         Console.WriteLine();
-        Console.WriteLine("   Original Text = " + original);
+        Console.WriteLine($"   Original Text = {original}");
         Console.WriteLine();
-        Console.WriteLine("   Encrypted Text = " + Convert.ToBase64String(encrypted));
+        Console.WriteLine($"   Encrypted Text = {Convert.ToBase64String(encrypted)}");
         Console.WriteLine();
-        Console.WriteLine("   Decrypted Text = " + Encoding.UTF8.GetString(decrypted));
+        Console.WriteLine($"   Decrypted Text = {Encoding.UTF8.GetString(decrypted)}");
         Console.WriteLine();
     }
 
@@ -74,10 +74,10 @@ class Program
         Console.WriteLine();
         Console.WriteLine("CSP Based Key");
         Console.WriteLine();
-        Console.WriteLine("   Original Text = " + original);
+        Console.WriteLine($"   Original Text = {original}");
         Console.WriteLine();
-        Console.WriteLine("   Encrypted Text = " + Convert.ToBase64String(encryptedCsp));
+        Console.WriteLine($"   Encrypted Text = {Convert.ToBase64String(encryptedCsp)}");
         Console.WriteLine();
-        Console.WriteLine("   Decrypted Text = " + Encoding.UTF8.GetString(decryptedCsp));
+        Console.WriteLine($"   Decrypted Text = {Encoding.UTF8.GetString(decryptedCsp)}");
     }
 }

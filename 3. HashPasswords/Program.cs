@@ -11,8 +11,8 @@ class Program
         Console.WriteLine("Hash Password with Salt Demonstration in .NET");
         Console.WriteLine("---------------------------------------------");
         Console.WriteLine();
-        Console.WriteLine("Password : " + password);
-        Console.WriteLine("Salt = " + Convert.ToBase64String(salt));
+        Console.WriteLine($"Password : {password}");
+        Console.WriteLine($"Salt = {Convert.ToBase64String(salt)}");
         Console.WriteLine();
 
         byte[] hashedPassword = Hash.HashPasswordWithSalt(
@@ -20,7 +20,7 @@ class Program
             salt);
 
         Console.WriteLine();
-        Console.WriteLine("Hashed Password = " + Convert.ToBase64String(hashedPassword));
+        Console.WriteLine($"Hashed Password = {Convert.ToBase64String(hashedPassword)}");
         Console.WriteLine();
 
         Console.ReadLine();
