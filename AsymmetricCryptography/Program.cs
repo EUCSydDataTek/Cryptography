@@ -14,7 +14,7 @@ class Program
     static void ExportKeys()
     {
         // Create an instance of the RSA algorithm object
-        RSACryptoServiceProvider myRSA = new RSACryptoServiceProvider();
+        using RSACryptoServiceProvider myRSA = new();
 
         // Create a new RSAParameters object with only the public key
         RSAParameters publicKey = myRSA.ExportParameters(false);
@@ -27,11 +27,11 @@ class Program
     static void StoreKeyPair()
     {
         // Create a CspParameters object (Crypto Service Provider)
-        CspParameters persistantCsp = new CspParameters();
+        CspParameters persistantCsp = new();
         persistantCsp.KeyContainerName = "AsymmetricExample";
 
         // Create an instance of the RSA algorithm object
-        RSACryptoServiceProvider myRSA = new RSACryptoServiceProvider(persistantCsp);
+        using RSACryptoServiceProvider myRSA = new(persistantCsp);
 
         // Specify that the private key should be stored in the CSP
         myRSA.PersistKeyInCsp = true;
@@ -41,7 +41,9 @@ class Program
 
         // Display the private key
         foreach (byte thisByte in privateKey.D)
+        {
             Console.Write(thisByte.ToString("X2") + " ");
+        }
     }
 
     static void EncryptDecrypt()
@@ -49,7 +51,7 @@ class Program
         string messageString = "Hello, World!";
         byte[] messageBytes = Encoding.Unicode.GetBytes(messageString);
 
-        RSACryptoServiceProvider myRsa = new RSACryptoServiceProvider();
+        using RSACryptoServiceProvider myRsa = new();
 
         // Get Public key from file and encrypt the message
         myRsa.FromXmlString(File.ReadAllText("PublicKeyOnly.xml"));

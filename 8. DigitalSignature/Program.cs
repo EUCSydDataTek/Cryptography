@@ -6,19 +6,16 @@ class Program
 {
     static void Main()
     {
-        var document = Encoding.UTF8.GetBytes("Document to Sign");
-        byte[] hashedDocument;
+        byte[] document = Encoding.UTF8.GetBytes("Document to Sign");
 
-        using (var sha256 = SHA256.Create())
-        {
-            hashedDocument = sha256.ComputeHash(document);
-        }
+        using SHA256 sha256 = SHA256.Create();
+        byte[] hashedDocument = sha256.ComputeHash(document);
 
-        var digitalSignature = new DigitalSignature();
+        DigitalSignature digitalSignature = new();
         digitalSignature.AssignNewKey();
 
-        var signature = digitalSignature.SignData(hashedDocument);
-        var verified = digitalSignature.VerifySignature(hashedDocument, signature);
+        byte[] signature = digitalSignature.SignData(hashedDocument);
+        bool verified = digitalSignature.VerifySignature(hashedDocument, signature);
 
         Console.WriteLine("Digital Signature Demonstration in .NET");
         Console.WriteLine("---------------------------------------");
@@ -31,8 +28,8 @@ class Program
 
         Console.WriteLine();
 
-        Console.WriteLine(verified
-            ? "The digital signature has been correctly verified."
+        Console.WriteLine(verified ?
+             "The digital signature has been correctly verified."
             : "The digital signature has NOT been correctly verified.");
 
         Console.ReadLine();

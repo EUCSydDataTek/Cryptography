@@ -27,11 +27,11 @@ class Program
 
     private static void HashPassword(string passwordToHash, int numberOfRounds)
     {
-        var sw = new Stopwatch();
+        Stopwatch sw = new();
 
         sw.Start();
 
-        var hashedPassword = Pbkdf2.HashPassword(Encoding.UTF8.GetBytes(passwordToHash),
+        byte[] hashedPassword = Pbkdf2.HashPassword(Encoding.UTF8.GetBytes(passwordToHash),
                                                  Pbkdf2.GenerateSalt(),
                                                  numberOfRounds);
         sw.Stop();

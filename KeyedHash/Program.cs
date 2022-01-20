@@ -14,15 +14,15 @@ class Program
     {
         // Step 1: Create the secret Key, that both parties should know
         byte[] saltValueBytes = Encoding.ASCII.GetBytes("This is my salt");
-        Rfc2898DeriveBytes passwordKey = new Rfc2898DeriveBytes(args[0], saltValueBytes);
+        using Rfc2898DeriveBytes passwordKey = new(args[0], saltValueBytes);
         byte[] secretKey = passwordKey.GetBytes(16);
 
         // Step 2: Create the hash algorithm object
-        HMACSHA1 myHash = new HMACSHA1(secretKey);
+        using HMACSHA1 myHash = new(secretKey);
 
         // Step 3: Store the data to be hashed in a byte array
-        FileStream file = new FileStream(args[1], FileMode.Open, FileAccess.Read);
-        BinaryReader reader = new BinaryReader(file);
+        using FileStream file = new(args[1], FileMode.Open, FileAccess.Read);
+        using BinaryReader reader = new(file);
 
         // Step 4: Call the HashAlgorithm.ComputeHash method
         myHash.ComputeHash(reader.ReadBytes((int)file.Length));

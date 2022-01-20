@@ -5,15 +5,15 @@ class Program
 {
     static void Main()
     {
-        var aes = new AesEncryption();
-        var key = aes.GenerateRandomNumber(32);
-        var iv = aes.GenerateRandomNumber(16);
+        AesEncryption aes = new();
+        byte[] key = aes.GenerateRandomNumber(32);
+        byte[] iv = aes.GenerateRandomNumber(16);
         const string original = "This my secret message";
 
-        var encrypted = aes.Encrypt(Encoding.UTF8.GetBytes(original), key, iv);
-        var decrypted = aes.Decrypt(encrypted, key, iv);
+        byte[] encrypted = aes.Encrypt(Encoding.UTF8.GetBytes(original), key, iv);
+        byte[] decrypted = aes.Decrypt(encrypted, key, iv);
 
-        var decryptedMessage = Encoding.UTF8.GetString(decrypted);
+        string decryptedMessage = Encoding.UTF8.GetString(decrypted);
 
         Console.WriteLine("AES Encryption Demonstration in .NET");
         Console.WriteLine("------------------------------------");

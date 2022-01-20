@@ -14,13 +14,13 @@ class Program
 
     private static void RsaWithRsaParameterKey()
     {
-        var rsaParams = new RSAWithRSAParameterKey();
+        RSAWithRSAParameterKey rsaParams = new();
         const string original = "Text to encrypt";
 
         rsaParams.AssignNewKey();
 
-        var encryptedRsaParams = rsaParams.EncryptData(Encoding.UTF8.GetBytes(original));
-        var decryptedRsaParams = rsaParams.DecryptData(encryptedRsaParams);
+        byte[] encryptedRsaParams = rsaParams.EncryptData(Encoding.UTF8.GetBytes(original));
+        byte[] decryptedRsaParams = rsaParams.DecryptData(encryptedRsaParams);
 
 
         Console.WriteLine("RSA Encryption Demonstration in .NET");
@@ -32,22 +32,22 @@ class Program
         Console.WriteLine();
         Console.WriteLine("   Encrypted Text = " + Convert.ToBase64String(encryptedRsaParams));
         Console.WriteLine();
-        Console.WriteLine("   Decrypted Text = " + Encoding.Default.GetString(decryptedRsaParams));
+        Console.WriteLine("   Decrypted Text = " + Encoding.UTF8.GetString(decryptedRsaParams));
         Console.WriteLine();
         Console.WriteLine();
     }
 
     private static void RsaWithXml()
     {
-        var rsa = new RsaWithXmlKey();
+        RsaWithXmlKey rsa = new();
 
         const string original = "Text to encrypt";
         const string publicKeyPath = "c:\\temp\\publickey.xml";
         const string privateKeyPath = "c:\\temp\\privatekey.xml";
 
         rsa.AssignNewKey(publicKeyPath, privateKeyPath);
-        var encrypted = rsa.EncryptData(publicKeyPath, Encoding.UTF8.GetBytes(original));
-        var decrypted = rsa.DecryptData(privateKeyPath, encrypted);
+        byte[] encrypted = rsa.EncryptData(publicKeyPath, Encoding.UTF8.GetBytes(original));
+        byte[] decrypted = rsa.DecryptData(privateKeyPath, encrypted);
 
         Console.WriteLine("Xml Based Key");
         Console.WriteLine();
@@ -55,19 +55,19 @@ class Program
         Console.WriteLine();
         Console.WriteLine("   Encrypted Text = " + Convert.ToBase64String(encrypted));
         Console.WriteLine();
-        Console.WriteLine("   Decrypted Text = " + Encoding.Default.GetString(decrypted));
+        Console.WriteLine("   Decrypted Text = " + Encoding.UTF8.GetString(decrypted));
         Console.WriteLine();
     }
 
     private static void RsaWithCsp()
     {
-        var rsaCsp = new RsaWithCspKey();
+        RsaWithCspKey rsaCsp = new();
         const string original = "Text to encrypt";
 
         rsaCsp.AssignNewKey();
 
-        var encryptedCsp = rsaCsp.EncryptData(Encoding.UTF8.GetBytes(original));
-        var decryptedCsp = rsaCsp.DecryptData(encryptedCsp);
+        byte[] encryptedCsp = rsaCsp.EncryptData(Encoding.UTF8.GetBytes(original));
+        byte[] decryptedCsp = rsaCsp.DecryptData(encryptedCsp);
 
         rsaCsp.DeleteKeyInCsp();
 
@@ -78,6 +78,6 @@ class Program
         Console.WriteLine();
         Console.WriteLine("   Encrypted Text = " + Convert.ToBase64String(encryptedCsp));
         Console.WriteLine();
-        Console.WriteLine("   Decrypted Text = " + Encoding.Default.GetString(decryptedCsp));
+        Console.WriteLine("   Decrypted Text = " + Encoding.UTF8.GetString(decryptedCsp));
     }
 }

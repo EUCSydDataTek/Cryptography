@@ -7,13 +7,13 @@ class Program
     {
         const string original = "Very secret and important information that can not fall into the wrong hands.";
 
-        var rsaParams = new RsaWithRsaParameterKey();
+        RsaWithRsaParameterKey rsaParams = new();
         rsaParams.AssignNewKey();
 
-        var hybrid = new HybridEncryption();
+        HybridEncryption hybrid = new();
 
-        var encryptedBlock = hybrid.EncryptData(Encoding.UTF8.GetBytes(original), rsaParams);
-        var decrypted = hybrid.DecryptData(encryptedBlock, rsaParams);
+        EncryptedPacket encryptedBlock = hybrid.EncryptData(Encoding.UTF8.GetBytes(original), rsaParams);
+        byte[] decrypted = hybrid.DecryptData(encryptedBlock, rsaParams);
 
         Console.WriteLine("Hybrid Encryption Demonstration in .NET");
         Console.WriteLine("---------------------------------------");

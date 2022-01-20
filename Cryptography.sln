@@ -1,31 +1,36 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32002.261
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32104.313
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. RandomNumbers", "RandomNumber\1. RandomNumbers.csproj", "{3D8306FF-7773-4175-8467-6FDD519FB8FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1. RandomNumbers", "RandomNumber\1. RandomNumbers.csproj", "{3D8306FF-7773-4175-8467-6FDD519FB8FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. Hash", "2. Hash\2. Hash.csproj", "{54ED8AE3-B73C-4F10-AB41-5A0138153352}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2. Hash", "2. Hash\2. Hash.csproj", "{54ED8AE3-B73C-4F10-AB41-5A0138153352}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3. HashPasswords", "3. HashPasswords\3. HashPasswords.csproj", "{E43A126A-157F-4F70-B2D2-7C3C6C066472}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3. HashPasswords", "3. HashPasswords\3. HashPasswords.csproj", "{E43A126A-157F-4F70-B2D2-7C3C6C066472}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4. PBKDF2", "4. PBKDF2\4. PBKDF2.csproj", "{3A0A6077-BC31-4C86-8DE2-34618F2753B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "4. PBKDF2", "4. PBKDF2\4. PBKDF2.csproj", "{3A0A6077-BC31-4C86-8DE2-34618F2753B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5. AES_Symmetric", "5. AES_Symmetric\5. AES_Symmetric.csproj", "{132899A7-AE9B-44AF-B876-0FB77A6D086D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "5. AES_Symmetric", "5. AES_Symmetric\5. AES_Symmetric.csproj", "{132899A7-AE9B-44AF-B876-0FB77A6D086D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6. RSA_Asymmetric", "6. RSA_Asymmetric\6. RSA_Asymmetric.csproj", "{5CD37595-C70B-44CF-8526-BA14EE332B3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "6. RSA_Asymmetric", "6. RSA_Asymmetric\6. RSA_Asymmetric.csproj", "{5CD37595-C70B-44CF-8526-BA14EE332B3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7. Hybrid", "7. Hybrid\7. Hybrid.csproj", "{DA5E9A26-5916-42F1-86E4-E694795A387F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "7. Hybrid", "7. Hybrid\7. Hybrid.csproj", "{DA5E9A26-5916-42F1-86E4-E694795A387F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8. DigitalSignature", "8. DigitalSignature\8. DigitalSignature.csproj", "{9A6784CA-526B-4C4C-8AE8-885422A956FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "8. DigitalSignature", "8. DigitalSignature\8. DigitalSignature.csproj", "{9A6784CA-526B-4C4C-8AE8-885422A956FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsymmetricCryptography", "AsymmetricCryptography\AsymmetricCryptography.csproj", "{D4A97EB1-FA33-4B85-A68C-3D5D179778BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsymmetricCryptography", "AsymmetricCryptography\AsymmetricCryptography.csproj", "{D4A97EB1-FA33-4B85-A68C-3D5D179778BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecryptionSymmetricKeys", "DecryptionSymmetricKeys\DecryptionSymmetricKeys.csproj", "{2101889D-CA44-4CCB-BEC8-17AB4CDD02B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecryptionSymmetricKeys", "DecryptionSymmetricKeys\DecryptionSymmetricKeys.csproj", "{2101889D-CA44-4CCB-BEC8-17AB4CDD02B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionSymmetricKeys", "EncryptionSymmetricKeys\EncryptionSymmetricKeys.csproj", "{FD43FE8C-CEE7-435A-8CD2-E4D8A1F28522}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncryptionSymmetricKeys", "EncryptionSymmetricKeys\EncryptionSymmetricKeys.csproj", "{FD43FE8C-CEE7-435A-8CD2-E4D8A1F28522}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyedHash", "KeyedHash\KeyedHash.csproj", "{023856FF-2494-4F1A-874B-DE80C9BE9575}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeyedHash", "KeyedHash\KeyedHash.csproj", "{023856FF-2494-4F1A-874B-DE80C9BE9575}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{414C54A0-6941-491E-B292-0CDD0621ACF4}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

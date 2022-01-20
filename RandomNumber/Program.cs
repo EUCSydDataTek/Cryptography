@@ -50,12 +50,11 @@ class SecureRandom
 {
     public static byte[] GenerateRandomNumber(int length)
     {
-        using (var randomNumberGenerator = RandomNumberGenerator.Create())
-        {
-            var randomNumber = new byte[length];
-            randomNumberGenerator.GetBytes(randomNumber);
-            return randomNumber;
-        }
+        using RandomNumberGenerator randomNumberGenerator = RandomNumberGenerator.Create();
+
+        byte[] randomNumber = new byte[length];
+        randomNumberGenerator.GetBytes(randomNumber);
+        return randomNumber;
     }
 }
 #endregion

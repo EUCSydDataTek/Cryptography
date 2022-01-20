@@ -15,7 +15,7 @@ class Program
         Console.WriteLine("Salt = " + Convert.ToBase64String(salt));
         Console.WriteLine();
 
-        var hashedPassword = Hash.HashPasswordWithSalt(
+        byte[] hashedPassword = Hash.HashPasswordWithSalt(
             Encoding.UTF8.GetBytes(password),
             salt);
 

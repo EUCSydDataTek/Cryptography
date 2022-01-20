@@ -7,47 +7,38 @@ public class RsaWithCspKey
 
     public void AssignNewKey()
     {
-        CspParameters cspParams = new CspParameters(1);
+        CspParameters cspParams = new(1);
         cspParams.KeyContainerName = ContainerName;
         cspParams.Flags = CspProviderFlags.UseMachineKeyStore;
         cspParams.ProviderName = "Microsoft Strong Cryptographic Provider";
 
-        var rsa = new RSACryptoServiceProvider(cspParams) { PersistKeyInCsp = true };
+        using RSACryptoServiceProvider rsa = new(cspParams) { PersistKeyInCsp = true };
     }
 
     public void DeleteKeyInCsp()
     {
-        var cspParams = new CspParameters { KeyContainerName = ContainerName };
-        var rsa = new RSACryptoServiceProvider(cspParams) { PersistKeyInCsp = false };
+        CspParameters cspParams = new() { KeyContainerName = ContainerName };
+        using RSACryptoServiceProvider rsa = new(cspParams) { PersistKeyInCsp = false };
 
         rsa.Clear();
     }
 
     public byte[] EncryptData(byte[] dataToEncrypt)
     {
-        byte[] cipherbytes;
+        CspParameters cspParams = new() { KeyContainerName = ContainerName };
 
-        var cspParams = new CspParameters { KeyContainerName = ContainerName };
+        using RSACryptoServiceProvider rsa = new(2048, cspParams);
 
-        using (var rsa = new RSACryptoServiceProvider(2048, cspParams))
-        {
-            cipherbytes = rsa.Encrypt(dataToEncrypt, false);
-        }
-
+        byte[] cipherbytes = rsa.Encrypt(dataToEncrypt, false);
         return cipherbytes;
     }
 
     public byte[] DecryptData(byte[] dataToDecrypt)
     {
-        byte[] plain;
+        CspParameters cspParams = new() { KeyContainerName = ContainerName };
+        using RSACryptoServiceProvider rsa = new(2048, cspParams);
 
-        var cspParams = new CspParameters { KeyContainerName = ContainerName };
-
-        using (var rsa = new RSACryptoServiceProvider(2048, cspParams))
-        {
-            plain = rsa.Decrypt(dataToDecrypt, false);
-        }
-
-        return plain;
+        byte[] plainText = rsa.Decrypt(dataToDecrypt, false);
+        return plainText;
     }
 }

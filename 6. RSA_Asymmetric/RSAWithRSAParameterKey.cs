@@ -8,41 +8,32 @@ public class RSAWithRSAParameterKey
 
     public void AssignNewKey()
     {
-        using (var rsa = new RSACryptoServiceProvider(2048))
-        {
-            rsa.PersistKeyInCsp = false;
-            _publicKey = rsa.ExportParameters(false);
-            _privateKey = rsa.ExportParameters(true);
-        }
+        using RSACryptoServiceProvider rsa = new(2048);
+
+        rsa.PersistKeyInCsp = false;
+        _publicKey = rsa.ExportParameters(false);
+        _privateKey = rsa.ExportParameters(true);
     }
 
     public byte[] EncryptData(byte[] dataToEncrypt)
     {
-        byte[] cipherbytes;
+        using RSACryptoServiceProvider rsa = new(2048);
 
-        using (var rsa = new RSACryptoServiceProvider(2048))
-        {
-            rsa.PersistKeyInCsp = false;
-            rsa.ImportParameters(_publicKey);
+        rsa.PersistKeyInCsp = false;
+        rsa.ImportParameters(_publicKey);
 
-            cipherbytes = rsa.Encrypt(dataToEncrypt, true);
-        }
-
+        byte[] cipherbytes = rsa.Encrypt(dataToEncrypt, true);
         return cipherbytes;
     }
 
     public byte[] DecryptData(byte[] dataToEncrypt)
     {
-        byte[] plain;
+        using RSACryptoServiceProvider rsa = new(2048);
 
-        using (var rsa = new RSACryptoServiceProvider(2048))
-        {
-            rsa.PersistKeyInCsp = false;
-
-            rsa.ImportParameters(_privateKey);
-            plain = rsa.Decrypt(dataToEncrypt, true);
-        }
-
-        return plain;
+        rsa.PersistKeyInCsp = false;
+        rsa.ImportParameters(_privateKey);
+        
+        byte[] plainText = rsa.Decrypt(dataToEncrypt, true);
+        return plainText;
     }
 }
