@@ -21,6 +21,7 @@ class Program
         HashPassword(passwordToHash, 100000);
         HashPassword(passwordToHash, 200000);
         HashPassword(passwordToHash, 500000);
+        HashPassword(passwordToHash, 2000000);
 
         Console.ReadLine();
     }

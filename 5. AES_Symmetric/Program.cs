@@ -8,7 +8,7 @@ class Program
         AesEncryption aes = new();
         byte[] key = aes.GenerateRandomNumber(32);
         byte[] iv = aes.GenerateRandomNumber(16);
-        const string original = "This my secret message";
+        const string original = "This my secret message זרו!";
 
         byte[] encrypted = aes.Encrypt(Encoding.UTF8.GetBytes(original), key, iv);
         byte[] decrypted = aes.Decrypt(encrypted, key, iv);
