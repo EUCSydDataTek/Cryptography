@@ -26,14 +26,14 @@ public class RSAWithRSAParameterKey
         return cipherbytes;
     }
 
-    public byte[] DecryptData(byte[] dataToEncrypt)
+    public byte[] DecryptData(byte[] dataToDecrypt)
     {
         using RSACryptoServiceProvider rsa = new(2048);
 
         rsa.PersistKeyInCsp = false;
         rsa.ImportParameters(_privateKey);
         
-        byte[] plainText = rsa.Decrypt(dataToEncrypt, true);
+        byte[] plainText = rsa.Decrypt(dataToDecrypt, true);
         return plainText;
     }
 }

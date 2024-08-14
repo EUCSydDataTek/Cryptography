@@ -39,13 +39,13 @@ public class RsaWithXmlKey
         return cipherText;
     }
 
-    public byte[] DecryptData(string privateKeyPath, byte[] dataToEncrypt)
+    public byte[] DecryptData(string privateKeyPath, byte[] dataToDecrypt)
     {
         using RSACryptoServiceProvider rsa = new(2048);
 
         rsa.PersistKeyInCsp = false;
         rsa.FromXmlString(File.ReadAllText(privateKeyPath));
-        byte[] plainText = rsa.Decrypt(dataToEncrypt, false);
+        byte[] plainText = rsa.Decrypt(dataToDecrypt, false);
         return plainText;
     }
 }

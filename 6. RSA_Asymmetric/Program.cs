@@ -5,9 +5,9 @@ class Program
 {
     static void Main()
     {
-        RsaWithRsaParameterKey();
+        //RsaWithRsaParameterKey();
         //RsaWithXml();
-        //RsaWithCsp();
+        RsaWithCsp();
 
         Console.ReadLine();
     }
@@ -22,7 +22,7 @@ class Program
         byte[] encryptedRsaParams = rsaParams.EncryptData(Encoding.UTF8.GetBytes(original));
         byte[] decryptedRsaParams = rsaParams.DecryptData(encryptedRsaParams);
 
-
+        
         Console.WriteLine("RSA Encryption Demonstration in .NET");
         Console.WriteLine("------------------------------------");
         Console.WriteLine();

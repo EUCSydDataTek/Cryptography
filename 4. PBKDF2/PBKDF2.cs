@@ -15,6 +15,7 @@ public class Pbkdf2
     public static byte[] HashPassword(byte[] toBeHashed, byte[] salt, int numberOfRounds)
     {
         using Rfc2898DeriveBytes rfc2898 = new(toBeHashed, salt, numberOfRounds, HashAlgorithmName.SHA256);
-        return rfc2898.GetBytes(32);
+        byte[] result = rfc2898.GetBytes(32);
+        return result;
     }
 }

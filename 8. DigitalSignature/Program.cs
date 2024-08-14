@@ -17,8 +17,8 @@ class Program
         byte[] signature = digitalSignature.SignData(hashedDocument);
 
              // Følgende to linjer simulerer at dokumentet er blevet ændret undervejs
-        //document = Encoding.UTF8.GetBytes("Du har ikke betalt din regning");
-        //hashedDocument = sha256.ComputeHash(document);
+        document = Encoding.UTF8.GetBytes("Du har ikke betalt din regning");
+        hashedDocument = sha256.ComputeHash(document);
 
         bool verified = digitalSignature.VerifySignature(hashedDocument, signature);
 

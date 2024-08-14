@@ -5,6 +5,7 @@
 
 using System.Text;
 using System.Security.Cryptography;
+using System;
 
 namespace NonkeyedHash;
 class Program
@@ -12,14 +13,20 @@ class Program
     static void Main(string[] args)
     {
         // Hash a file with EOF, and will deviate from hash of plain string!
-        using Stream fs = File.OpenRead(args[0]);
-        byte[] hash = MD5.Create().ComputeHash(fs);
-        Console.WriteLine(Convert.ToBase64String(hash));
+        using Stream fs = File.OpenRead("securefile.txt");
+        byte[] hash = SHA512.Create().ComputeHash(fs);
+
+        Console.WriteLine("Secure file.");
+        Console.WriteLine("Base64:" + Convert.ToBase64String(hash));
+        Console.WriteLine("Hex:" + Convert.ToHexString(hash));
+        Console.WriteLine("");
 
         // Hash a byte array (password)
+        Console.WriteLine("Text.");
         byte[] data = Encoding.UTF8.GetBytes("Kage er godt");
-        byte[] hashString = MD5.Create().ComputeHash(data);
-        Console.WriteLine(Convert.ToBase64String(hashString));
-        Console.WriteLine(Convert.ToHexString(hashString));
+        byte[] hashString = SHA512.Create().ComputeHash(data);
+
+        Console.WriteLine("Base64:" + Convert.ToBase64String(hashString));
+        Console.WriteLine("Hex:" + Convert.ToHexString(hashString));
     }
 }

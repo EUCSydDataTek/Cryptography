@@ -22,6 +22,10 @@ class Program
         Console.WriteLine($"Encrypted Text = {Convert.ToBase64String(encrypted)}");
         Console.WriteLine($"Decrypted Text = {decryptedMessage}");
 
+        byte[] Wrongkey = aes.GenerateRandomNumber(32);
+
+        //byte[] WrongDecrypted = aes.Decrypt(encrypted, Wrongkey, iv);
+
         Console.ReadLine();
     }
 }
