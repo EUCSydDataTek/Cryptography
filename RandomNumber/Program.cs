@@ -5,8 +5,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        //NotSoRandomNumber();
-        SecureRandomNumber();
+        NotSoRandomNumber();
+        //SecureRandomNumber();
     }
 
     #region *** Not so Random Numbers with Random-class ***

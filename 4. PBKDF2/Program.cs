@@ -15,13 +15,12 @@ class Program
         Console.WriteLine();
 
         HashPassword(passwordToHash, 100);
-        HashPassword(passwordToHash, 1000);
-        HashPassword(passwordToHash, 10000);
-        HashPassword(passwordToHash, 50000);
-        HashPassword(passwordToHash, 100000);
-        HashPassword(passwordToHash, 200000);
-        HashPassword(passwordToHash, 500000);
-        HashPassword(passwordToHash, 2000000);
+        HashPassword(passwordToHash, 1_000);
+        HashPassword(passwordToHash, 10_000);
+        HashPassword(passwordToHash, 50_000);
+        HashPassword(passwordToHash, 100_000);
+        HashPassword(passwordToHash, 500_000);
+        HashPassword(passwordToHash, 10_000_000);
         Console.ReadLine();
         HashPassword(passwordToHash, int.MaxValue);
 

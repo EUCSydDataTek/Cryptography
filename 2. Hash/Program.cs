@@ -1,7 +1,8 @@
 // Opret filen HashThis.txt i Debug-folderen og skriv en tekst
-// Eksekver programmet: NonkeyedHash HashThis.txt
-// K�r progrmmet igen og se at hashen er den samme
-// �ndre lidt i filen HashThis.txt og hash igen. Nu er hashen en anden!
+// Link filen her: Højre klik på projektet | Properties | Debug | klik på Open debug launch profiles UI)
+// Eksekver programmet og bemærk hashen
+// Kør progrmmet igen og se at hashen er den samme
+// Ændre lidt i filen securefile.txt og hash igen. Nu er hashen en anden!
 
 using System.Text;
 using System.Security.Cryptography;
